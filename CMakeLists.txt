@@ -69,3 +69,6 @@ include_directories(src)
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCE_LISTS} ${RCC_SOURCES})
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::SerialPort Qt5::Network)
+
+execute_process(COMMAND python semver.py
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/scripts)

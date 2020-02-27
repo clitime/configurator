@@ -64,3 +64,4 @@ build
 *.scvd
 *.user.*
 tests/*.log
+src/version.h
