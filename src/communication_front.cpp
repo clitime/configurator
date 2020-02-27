@@ -18,6 +18,8 @@
 #include "tcp_com.h"
 #include "udp_com.h"
 
+#include "version.h"
+
 
 Communication_front::Communication_front(QWidget *parent)
     : QWidget(parent), btn_open_name("Открыть соединение"),
@@ -52,6 +54,7 @@ Communication_front::Communication_front(QWidget *parent)
     lay->addWidget(type_connection);
     lay->addWidget(stack_communication);
     lay->addWidget(btn_connection);
+    lay->addWidget(new QLabel("Версия ПО: " + full_version));
     lay->setSizeConstraint(QLayout::SetFixedSize);
 
     QGroupBox *v_frame = new QGroupBox("Конфигурация соединения");

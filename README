@@ -1,7 +1,13 @@
-build
-    1. create folder: mkdir build
-    2. go to build: cd build
-    3. create project file, example:
+Зависимости:
+    cmake
+    qt5
+    git
+    python
+
+сборка проекта:
+    1. создать папку в корне дерева проекта: mkdir build
+    2. перейти в нее: cd build
+    3. сгенерировать файл сборки, например makefile:
         cmake ../ -G "MinGW Makefiles"
-    4. build project:
+    4. собрать проект:
         cmake --build ./ -j
