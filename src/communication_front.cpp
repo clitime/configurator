@@ -49,12 +49,19 @@ Communication_front::Communication_front(QWidget *parent)
     device_addr->setText("1");
     hdev_addr->addWidget(device_addr);
 
+    QHBoxLayout *version_lay = new QHBoxLayout();
+    version_lay->addWidget(new QLabel("Версия ПО: "));
+    QLineEdit *version_line = new QLineEdit();
+    version_line->setReadOnly(true);
+    version_line->setText(full_version);
+    version_lay->addWidget(version_line);
+
     QVBoxLayout *lay = new QVBoxLayout();
     lay->addLayout(hdev_addr);
     lay->addWidget(type_connection);
     lay->addWidget(stack_communication);
     lay->addWidget(btn_connection);
-    lay->addWidget(new QLabel("Версия ПО: " + full_version));
+    lay->addLayout(version_lay);
     lay->setSizeConstraint(QLayout::SetFixedSize);
 
     QGroupBox *v_frame = new QGroupBox("Конфигурация соединения");
