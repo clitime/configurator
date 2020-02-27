@@ -1,0 +1,7 @@
+build
+    1. create folder: mkdir build
+    2. go to build: cd build
+    3. create project file, example:
+        cmake ../ -G "MinGW Makefiles"
+    4. build project:
+        cmake --build ./ -j
