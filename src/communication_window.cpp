@@ -117,7 +117,8 @@ void Communication_window::send(void) {
 
 void Communication_window::get_read_data(const QByteArray &d) {
     if (read_hex_view->isChecked()) {
-        QString buf(d.toHex(' '));
+//        QString buf(d.toHex(' '));
+        QString buf(d.toHex());
         read_txt->appendPlainText(buf.toUpper());
     } else {
         read_txt->appendPlainText(d);
