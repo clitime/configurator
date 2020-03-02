@@ -2,7 +2,7 @@
 
 
 #include "serial_com.h"
-#include <QNetworkDatagram>
+//#include <QNetworkDatagram>
 #include <QRegExp>
 #include <QTimer>
 #include <QUdpSocket>
@@ -38,12 +38,14 @@ bool UdpBack::open(const QString &arg1, qint32 arg2) {
 
 
 void UdpBack::handle_ready_read(void) {
+    QByteArray datagram;
     while (udpSocket->hasPendingDatagrams()) {
-        QNetworkDatagram datagram = udpSocket->receiveDatagram();
-
-        if (datagram.isValid()) {
-            emit data_is_ready(datagram.data());
-        }
+        // QNetworkDatagram datagram = udpSocket->receiveDatagram();
+	datagram.resize(static_cast<int>(udpSocket->pendingDatagramSize()));
+        udpSocket->readDatagram(datagram.data(), datagram.size());
+    }
+    if (!datagram.isEmpty()) {
+        emit data_is_ready(datagram.data());
     }
 }
 
