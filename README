@@ -11,3 +11,51 @@
         cmake ../ -G "MinGW Makefiles"
     4. собрать проект:
         cmake --build ./ -j
+
+
+для переноса в windows:
+
+platforms/qwindows.dll
+conf_PTZ.exe
+libgcc_s_seh-1.dll
+libstdc++-6.dll
+libwinpthread-1.dll
+list.txt
+Qt5Core.dll
+Qt5Gui.dll
+Qt5Network.dll
+Qt5SerialPort.dll
+Qt5Widgets.dll
+
+
+для linux собирал в ubuntu16 qt5. для того, чтобы запустить на minimal ubuntu18
+
+platforms/libqxcb.so
+conf_PTZ
+libicudata.so.55
+libicudata.so.55.1
+libicui18n.so.55
+libicui18n.so.55.1
+libicuuc.so.55
+libicuuc.so.55.1
+libpcre16.so.3
+libpcre16.so.3.13.2
+libpng12.so.0
+libpng12.so.0.54.0
+libQt5Core.so.5
+libQt5Core.so.5.5.1
+libQt5DBus.so.5
+libQt5DBus.so.5.5.1
+libQt5Gui.so.5
+libQt5Gui.so.5.5.1
+libQt5Network.so.5
+libQt5Network.so.5.5.1
+libQt5SerialPort.so.5
+libQt5SerialPort.so.5.5.1
+libQt5Widgets.so.5
+libQt5Widgets.so.5.5.1
+libQt5XcbQpa.so.5
+libQt5XcbQpa.so.5.5.1
+libstdc++.so.6
+libstdc++.so.6.0.21
+PTZ.sh
