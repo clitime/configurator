@@ -26,8 +26,8 @@ add_compile_options(
     -Wold-style-cast
     -Woverloaded-virtual
     -Wredundant-decls
-    -Wsign-conversion
-    -Wsign-promo
+    # -Wsign-conversion
+    # -Wsign-promo
 )
 
 add_link_options(

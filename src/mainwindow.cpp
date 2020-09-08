@@ -30,6 +30,9 @@ MainWindow::MainWindow(QMainWindow *parent)
     connect(pelcod, &PelcoDTransport::data_is_ready, setting,
             &SettingWindow::get_read_data);
 
+    connect(pelcod, &PelcoDTransport::data_is_ready, ctrl,
+            &Control_window::get_read_data);
+
     connect(setting, &SettingWindow::data_is_send, cmt,
             &Communication_front::write);
 

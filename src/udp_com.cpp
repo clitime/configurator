@@ -45,7 +45,7 @@ void UdpBack::handle_ready_read(void) {
         udpSocket->readDatagram(datagram.data(), datagram.size());
     }
     if (!datagram.isEmpty()) {
-        emit data_is_ready(datagram.data());
+        emit data_is_ready(datagram);
     }
 }
 
