@@ -242,13 +242,15 @@ void Control_window::get_read_data(const QByteArray &d) {
     uint8_t var0 = static_cast<uint8_t>(data[0]);
     uint8_t var1 = static_cast<uint8_t>(data[1]);
     if (var0 == 0x00 && var1 == 0x5D) {
-        QString val = QString::number(static_cast<uint8_t>(data[2])) + "." + QString::number(static_cast<uint8_t>(data[3]));
+        uint16_t cc = static_cast<uint16_t>((static_cast<uint8_t>(data[2]) << 8) | static_cast<uint8_t>(data[3]));
+        QString val = QString::number(static_cast<uint16_t>(cc / 100)) + "." + QString::number(static_cast<uint16_t>(cc % 100));
         zoom_coordinate_le->setText(val.toUpper());
         if (auto_request->checkState() == Qt::Checked) {
             handle_timer();
         }
     } else if (var0 == 0x00 && var1 == 0x5F) {
-        QString val = QString::number(static_cast<uint8_t>(data[2])) + "." + QString::number(static_cast<uint8_t>(data[3]));
+        uint16_t cc = static_cast<uint16_t>((static_cast<uint8_t>(data[2]) << 8) | static_cast<uint8_t>(data[3]));
+        QString val = QString::number(static_cast<uint16_t>(cc / 100)) + "." + QString::number(static_cast<uint16_t>(cc % 100));
         focus_coordinate_le->setText(val.toUpper());
         if (auto_request->checkState() == Qt::Checked) {
             handle_timer();
