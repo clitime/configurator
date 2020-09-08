@@ -55,7 +55,6 @@ public slots:
     QByteArray set_addr_device(quint8 p1, quint8 p2);
     QByteArray set_baudrate(quint8 p1, quint8 p2);
 
-    QByteArray set_speed_trans(quint8 p1, quint8 p2);
     QByteArray set_speed_zoom(quint8 p1, quint8 p2);
     QByteArray set_speed_focus(quint8 p1, quint8 p2);
     QByteArray save_presetposition(quint8 p1, quint8 p2);

@@ -165,11 +165,6 @@ QByteArray PelcoDTransport::set_baudrate(quint8 p1, quint8 p2) {
 
 /******************************************************************************/
 
-
-QByteArray PelcoDTransport::set_speed_trans(quint8 p1, quint8 p2) {
-    // ff 01 00 23 00 01 25
-    return parse_transmit_pkg(make_msg(0x00, 0x23, p1, p2));
-}
 QByteArray PelcoDTransport::set_speed_zoom(quint8 p1, quint8 p2) {
     // ff 01 00 25 00 00 26
     // ff 01 00 25 00 01 27

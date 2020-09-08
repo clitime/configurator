@@ -76,10 +76,8 @@ QWidget *Control_window::setting_speed_widget(void) {
     QVBoxLayout *set_l2 = new QVBoxLayout();
     QVBoxLayout *set_l3 = new QVBoxLayout();
 
-    QLabel *lbl1 = new QLabel("трансфокатор");
     QLabel *lbl2 = new QLabel("zoom");
     QLabel *lbl3 = new QLabel("focus");
-    set_l1->addWidget(lbl1);
     set_l1->addWidget(lbl2);
     set_l1->addWidget(lbl3);
     main_l->addLayout(set_l1);
@@ -88,9 +86,6 @@ QWidget *Control_window::setting_speed_widget(void) {
                     "6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{3}|"
                     "[1-9][0-9]{2}|[1-9][0-9]|[1-9]");
     QValidator *uint16val1 = new QRegExpValidator(pattern, this);
-    speed_trans_le = new QLineEdit();
-    speed_trans_le->setText("0");
-    speed_trans_le->setValidator(uint16val1);
     speed_zoom_le = new QLineEdit();
     speed_zoom_le->setText("0");
     speed_zoom_le->setValidator(uint16val1);
@@ -98,22 +93,17 @@ QWidget *Control_window::setting_speed_widget(void) {
     speed_focus_le->setValidator(uint16val1);
     speed_focus_le->setText("0");
 
-    set_l2->addWidget(speed_trans_le);
     set_l2->addWidget(speed_zoom_le);
     set_l2->addWidget(speed_focus_le);
 
     main_l->addLayout(set_l2);
 
-    QPushButton *btn1 = new QPushButton("Задать");
-    connect(btn1, &QPushButton::clicked, this,
-            &Control_window::set_speed_trans);
     QPushButton *btn3 = new QPushButton("Задать");
     connect(btn3, &QPushButton::clicked, this,
             &Control_window::set_speed_focus);
     QPushButton *btn2 = new QPushButton("Задать");
     connect(btn2, &QPushButton::clicked, this, &Control_window::set_speed_zoom);
 
-    set_l3->addWidget(btn1);
     set_l3->addWidget(btn2);
     set_l3->addWidget(btn3);
     main_l->addLayout(set_l3);
@@ -267,12 +257,6 @@ void Control_window::get_read_data(const QByteArray &d) {
 }
 
 
-void Control_window::set_speed_trans() {
-    int p1 = speed_trans_le->text().toInt();
-    quint8 hh = static_cast<quint8>((p1 & 0xff00) >> 8);
-    quint8 ll = static_cast<quint8>(p1 & 0xff);
-    emit data_is_send(pelcod->set_speed_trans(hh, ll));
-}
 void Control_window::set_speed_zoom() {
     int p1 = speed_zoom_le->text().toInt();
     quint8 hh = static_cast<quint8>((p1 & 0xff00) >> 8);

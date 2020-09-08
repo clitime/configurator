@@ -16,7 +16,6 @@ private:
     PelcoDTransport *pelcod;
     QTimer *timer = nullptr;
 
-    QLineEdit *speed_trans_le = nullptr;
     QLineEdit *speed_zoom_le = nullptr;
     QLineEdit *speed_focus_le = nullptr;
     QLineEdit *presetposition_le = nullptr;
@@ -36,7 +35,6 @@ public:
     Control_window(QWidget *parent = nullptr, PelcoDTransport *p = nullptr);
     ~Control_window();
 private slots:
-    void set_speed_trans();
     void set_speed_zoom();
     void set_speed_focus();
     void save_presetposition();
