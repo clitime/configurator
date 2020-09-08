@@ -238,7 +238,7 @@ void SettingWindow::get_read_data(const QByteArray &d) {
         if (data[1] != static_cast<char>(0xA1)) {
             break;
         }
-        cu_addr_le->setText(QString::number(static_cast<int>(data[3])));
+        cu_addr_le->setText(QString::number(static_cast<quint8>(data[3]), 16));
         pelcod->setAddress(static_cast<quint8>(data[3]));
         break;
     case 0x05:
