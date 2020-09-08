@@ -250,8 +250,8 @@ void SettingWindow::get_read_data(const QByteArray &d) {
         if (data[1] != static_cast<char>(0xA1)) {
             break;
         }
-        int val = (static_cast<int>(data[2]) << 8) | static_cast<int>(data[3]);
-        serial_number_le->setText(QString::number(val));
+        uint val = (static_cast<quint8>(data[2]) << 8) | static_cast<quint8>(data[3]);
+        serial_number_le->setText(QString::number(val, 16).toUpper());
     } break;
     case 0x08:
         if (data[1] != static_cast<char>(0xA1)) {
