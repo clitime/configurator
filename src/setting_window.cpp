@@ -257,10 +257,22 @@ void SettingWindow::get_read_data(const QByteArray &d) {
         if (data[1] != static_cast<char>(0xA1)) {
             break;
         }
-        firmware_version_le->setText(
-            QString::number(static_cast<int>(data[2])));
-        protocol_version_le->setText(
-            QString::number(static_cast<int>(data[3])));
+        {
+            uint8_t fv = static_cast<uint8_t>(data[2]);
+            QString sfv = QString::number(fv / 100) + ".";
+            sfv += QString::number((fv % 100) / 10) + ".";
+            sfv += QString::number(fv % 10);
+            firmware_version_le->setText(sfv);
+
+            fv = static_cast<uint8_t>(data[3]);
+            sfv = "";
+            if (fv > 99) {
+                sfv += QString::number(fv / 100) + ".";
+            }
+            sfv += QString::number((fv % 100) / 10)  + ".";
+            sfv += QString::number(fv % 10);
+            protocol_version_le->setText(sfv);
+        }
         break;
     case 0x40: {
         if (data[1] != static_cast<char>(0xA1)) {
