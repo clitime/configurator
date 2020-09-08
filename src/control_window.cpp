@@ -155,8 +155,8 @@ QWidget *Control_window::manual_ctrl_widget(void) {
 
 QWidget *Control_window::current_coordinate_widget(void) {
     QGroupBox *gbx = new QGroupBox("Текущие координаты привода");
-    QLabel *lbl1 = new QLabel("zoom");
-    QLabel *lbl2 = new QLabel("focus");
+    QLabel *lbl1 = new QLabel("zoom, %");
+    QLabel *lbl2 = new QLabel("focus, %");
 
     zoom_coordinate_le = new QLineEdit();
     zoom_coordinate_le->setReadOnly(true);
